@@ -1,0 +1,22 @@
+version: '3.8'
+services:
+  build:
+    build:
+      context: ./server
+      target: build
+    volumes:
+      - ./server:/usr/src/app/
+      - target:/usr/src/app/target
+      - webapps:/usr/src/app/webapps
+    command: tail -f /dev/null
+
+  app:
+    build: ./server
+    ports:
+      - "8080:8080"
+    volumes:
+      - webapps:/usr/local/tomcat/webapps/
+
+volumes:
+  target:
+  webapps:
