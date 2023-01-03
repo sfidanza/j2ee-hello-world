@@ -1,5 +1,5 @@
 # Stage Build
-FROM openjdk:8-jdk-alpine AS build
+FROM openjdk:17-jdk-alpine AS build
 
 # Install Maven
 RUN apk add --no-cache curl tar bash
