@@ -16,7 +16,7 @@ Everything is started through `docker-compose`, so the usual commands are workin
     docker-compose up -d --build
     docker-compose down
 
-Once started, you can access the application at <http://localhost:8080>. Additionally:
+Once started, you can access the application at <http://localhost:8080/helloWorld/helloWorld>. Additionally:
 
 - Shell into the `build` container to manually launch `mvn package` or whatever command of this kind. Any update in the `war` will be picked up by Tomcat automatically.
 - View logs on the `app` container to follow Tomcat engine logs (when it picks up an updated jar).
