@@ -10,11 +10,11 @@ There is no necessary setup. However, the local environment in VSCode will most 
 
 ### Run locally in development mode
 
-Everything is started through `docker-compose`, so the usual commands are working:
+Everything is started through `docker compose`, so the usual commands are working:
 
-    docker-compose build
-    docker-compose up -d --build
-    docker-compose down
+    docker compose build
+    docker compose up -d --build
+    docker compose down
 
 Once started, you can access the application at <http://localhost:8080/helloWorld/helloWorld>. Additionally:
 
@@ -41,9 +41,9 @@ The point of this dockerized setup is to avoid installing dev tools on the local
 
 ## Production setup
 
-To run on docker swarm, use the following commands (images must either be available in container repository or have been built locally before, using `docker-compose build` for example):
+To run on docker swarm, use the following commands (images must either be available in container repository or have been built locally before, using `docker compose build` for example):
 
-    docker-compose -f docker-compose.yml config | docker stack deploy -c - helloWorld
+    docker compose -f docker-compose.yml config | docker stack deploy -c - helloWorld
     docker stack rm helloWorld
 
 ## References
