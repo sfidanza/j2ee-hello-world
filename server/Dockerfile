@@ -24,7 +24,7 @@ RUN mvn test
 RUN mvn package -Dmaven.test.skip=true
 
 # Stage Run
-FROM tomcat:10
+FROM tomcat:11
 COPY --from=build /usr/src/app/webapps/helloWorld.war /usr/local/tomcat/webapps
 CMD ["catalina.sh", "run"]
 EXPOSE 8080
