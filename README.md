@@ -24,18 +24,16 @@ Once started, you can access the application at <http://localhost:8080/helloWorl
 
 ### Use VS Code as a java editor
 
-The point of this dockerized setup is to avoid installing dev tools on the local machine. However, since this is not really working at the moment, here is a simple setup:
+The point of this dockerized setup is to avoid installing dev tools on the local machine. However, to enable easy java support in VS Code, here is a simple setup:
 
-- of course install the VSCode Extension Pack for Java
-- install jdk-11 (needed by VSCode) and jdk-8 (for the project), for example from <https://adoptium.net/temurin/releases?version=8>
-- in user settings (File > Preferences > Settings), search for "java home" and then "Edit in settings.json":
+- install the VSCode Extension Pack for Java
+- install jdk-17, for example from <https://adoptium.net/temurin/releases?version=17>
+- in case of issues, check your user settings (File > Preferences > Settings), search for "java home" and then "Edit in settings.json":
 
-      "java.jdt.ls.java.home": "C:\\Program Files\\Eclipse Adoptium\\jdk-11.0.13.8-hotspot",
+      "java.jdt.ls.java.home": "...", // default jdk used by VS Code itself
       "java.configuration.runtimes": [
           {
-            "name": "JavaSE-1.8",
-            "path": "C:\\Program Files\\Eclipse Adoptium\\jdk-8.0.312.7-hotspot",
-            "default":  true
+            // you should have java 17 here if not the default
           }
         ]
 

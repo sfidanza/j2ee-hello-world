@@ -1,9 +1,9 @@
 # Stage Build
-FROM openjdk:8-jdk-alpine AS build
+FROM eclipse-temurin:17-jdk-alpine AS build
 
 # Install Maven
 RUN apk add --no-cache curl tar bash
-ARG MAVEN_VERSION=3.9.4
+ARG MAVEN_VERSION=3.9.9
 ARG USER_HOME_DIR="/root"
 RUN mkdir -p /usr/share/maven && \
   curl -fsSL https://dlcdn.apache.org/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz | tar -xzC /usr/share/maven --strip-components=1 && \
