@@ -6,7 +6,7 @@ The build is done with Maven, then the resulting `war` is run by Tomcat. Both ar
 
 ## Develoment setup
 
-There is no necessary setup. However, the local environment in VSCode will most likely rely on a locally installed jre. This will need to be addressed later. There should be no issue if VS Code does not understand the code (the container will), but as a dev env setup it may not be optimal.
+There is no necessary setup. However, the local environment in VS Code will most likely rely on a locally installed jre. This is addressed in its own section below. There should be no issue if VS Code does not understand the code (the container will), but as a dev env setup it may not be optimal.
 
 ### Run locally in development mode
 
@@ -26,16 +26,18 @@ Once started, you can access the application at <http://localhost:8080/helloWorl
 
 The point of this dockerized setup is to avoid installing dev tools on the local machine. However, to enable easy java support in VS Code, here is a simple setup:
 
-- install the VSCode Extension Pack for Java
-- install jdk-17, for example from <https://adoptium.net/temurin/releases?version=17>
-- in case of issues, check your user settings (File > Preferences > Settings), search for "java home" and then "Edit in settings.json":
+- install the VS Code Extension Pack for Java
+- install jdk (same version as in `server/Dockerfile`), for example from <https://adoptium.net/temurin/releases> or using Chocolatey
+- VS Code should autodetect available jdks but in case of issues, check your user settings (File > Preferences > Settings), search for "java home" and then "Edit in settings.json":
 
       "java.jdt.ls.java.home": "...", // default jdk used by VS Code itself
       "java.configuration.runtimes": [
           {
-            // you should have java 17 here if not the default
+            // additional jdk if not auto-detected
           }
         ]
+
+Note that the pom.xml changes may not be taken into account automatically. You can force a pom reload through the `Java projects` panel: right-click the project, then "Maven > Reload project". This should help if the `maven.compiler.release` is not properly reflected in VS Code.
 
 ## Production setup
 
