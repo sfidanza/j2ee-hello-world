@@ -1,5 +1,5 @@
 # Stage Build
-FROM eclipse-temurin:21.0.5_11-jdk-alpine AS build
+FROM eclipse-temurin:21.0.6_7-jdk-alpine AS build
 
 # Install Maven
 RUN apk add --no-cache curl tar bash
