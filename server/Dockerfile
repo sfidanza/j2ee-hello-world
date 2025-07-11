@@ -3,7 +3,7 @@ FROM eclipse-temurin:21.0.7_6-jdk-alpine AS build
 
 # Install Maven
 RUN apk add --no-cache curl tar bash
-ARG MAVEN_VERSION=3.9.9
+ARG MAVEN_VERSION=3.9.10
 ARG USER_HOME_DIR="/root"
 RUN mkdir -p /usr/share/maven && \
   curl -fsSL https://dlcdn.apache.org/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz | tar -xzC /usr/share/maven --strip-components=1 && \
