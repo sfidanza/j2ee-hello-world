@@ -1,17 +1,5 @@
 # Stage Build
-FROM eclipse-temurin:21.0.7_6-jdk-alpine AS build
-
-# Install Maven
-RUN apk add --no-cache curl tar bash
-ARG MAVEN_VERSION=3.9.10
-ARG USER_HOME_DIR="/root"
-RUN mkdir -p /usr/share/maven && \
-  curl -fsSL https://dlcdn.apache.org/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz | tar -xzC /usr/share/maven --strip-components=1 && \
-  ln -s /usr/share/maven/bin/mvn /usr/bin/mvn
-ENV MAVEN_HOME /usr/share/maven
-ENV MAVEN_CONFIG "$USER_HOME_DIR/.m2"
-# speed up Maven JVM a bit
-ENV MAVEN_OPTS="-XX:+TieredCompilation -XX:TieredStopAtLevel=1"
+FROM maven:3.9.10-eclipse-temurin-21-alpine AS build
 
 # Download and cache maven dependencies
 WORKDIR /usr/src/app
