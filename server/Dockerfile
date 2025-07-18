@@ -1,5 +1,5 @@
 # Stage Build
-FROM maven:3.9.10-eclipse-temurin-21-alpine AS build
+FROM maven:3.9.11-eclipse-temurin-21-alpine AS build
 
 # Download and cache maven dependencies
 WORKDIR /usr/src/app
